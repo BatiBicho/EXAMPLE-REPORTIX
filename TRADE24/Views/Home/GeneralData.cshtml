@@ -1,0 +1,84 @@
+﻿@using Resources = TRADE24.Resources;
+@{
+    Layout = "_Layout";
+ }
+
+@section Styles {
+    <!-- CSS de jQuery UI (Necesario para los íconos de paginación del jqGrid) -->
+    <link rel="stylesheet" href="~/lib/jqueryui/themes/base/jquery-ui.min.css" />
+
+    <!-- CSS principal de jqGrid -->
+    <link rel="stylesheet" href="~/lib/jqgrid/css/ui.jqgrid.css" />
+
+    <style>
+        /* Ajustes visuales opcionales para adaptar jqGrid al diseño moderno */
+        .ui-jqgrid {
+            font-family: inherit;
+        }
+        .ui-jqgrid .ui-jqgrid-titlebar {
+            background: #0d6efd;
+            color: white;
+            font-weight: bold;
+            padding: 8px;
+        }
+    </style>
+}
+
+@Html.Hidden("UrlPrint", Url.Action("DownloadPdf"))
+
+<div class="container-fluid mt-4">
+    <h2 class="mb-4 text-primary">@Resources.General.GeneralInformation</h2>
+
+    <!-- Secciones Superior: Información de la Compañía -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">@Resources.General.GeneralInformation</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <strong>@Resources.General.SocialReson:</strong> <span id="companyName">Cargando...</span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <strong>@Resources.General.InternCode:</strong> <span id="companyCode">Cargando...</span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <strong>RFC:</strong> <span id="companyRfc">Cargando...</span>
+                </div>
+                <div class="col-md-8 mb-3">
+                    <strong>@Resources.General.PhysicalAddress:</strong> <span id="companyAddress">Cargando...</span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <strong>:</strong> <span id="companyStatus" class="badge bg-success">Activo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Inferior: Grid de Plantas con jqGrid -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-secondary text-white">
+            <h5 class="card-title mb-0">@Resources.General.PlantList</h5>
+            <button id="btnPrint" class="btn btn-primary btn-sm"><i class="bi bi-arrow-up-short"></i> @Resources.General.Download</button>
+        </div>
+        <div class="card-body p-3">
+            <!-- Tabla y Paginador de jqGrid -->
+            <table id="plantsGrid"></table>
+            <div id="plantsPager"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- 1. jQuery UI JS -->
+    <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
+
+    <!-- 2. Archivo de idioma de jqGrid (DEBE ir antes del script principal) -->
+    <script src="~/lib/jqgrid/js/i18n/grid.locale-es.js"></script>
+
+    <!-- 3. jqGrid JS -->
+    <script src="~/lib/jqgrid/js/jquery.jqGrid.min.js"></script>
+
+    <!-- 4. JS independiente de la página GeneralData -->
+    <script src="~/js/general-data.js" asp-append-version="true"></script>
+}

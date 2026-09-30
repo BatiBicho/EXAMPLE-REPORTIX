@@ -1,0 +1,68 @@
+/* ==========================================================================
+   Trade24 - Override de colores Bootstrap 5 a Azul con Gradiente
+   ========================================================================== */
+
+:root {
+    --bs-primary: #0a2540;
+    --bs-primary-rgb: 10, 37, 64;
+    --bs-link-color: #0b3967;
+    --bs-link-color-rgb: 11, 57, 103;
+    --bs-link-hover-color: #071b2f;
+    --bs-link-hover-color-rgb: 7, 27, 47;
+    --bs-primary-text-emphasis: #071b2f;
+    --bs-primary-bg-subtle: #e8edf3;
+    --bs-primary-border-subtle: #b8cadb;
+
+    /* Gradientes Trade24 */
+    --t24-primary-gradient: linear-gradient(140deg, #05192d 0%, #0a2b4e 45%, #134679 100%);
+    --t24-btn-gradient: linear-gradient(135deg, #0a2540 0%, #15467b 100%);
+    --t24-btn-hover-gradient: linear-gradient(135deg, #061626 0%, #0e355f 100%);
+}
+
+/* Background primario con gradiente */
+.bg-primary {
+    background: var(--t24-primary-gradient) !important;
+}
+
+/* Botón primario con gradiente */
+.btn-primary {
+    --bs-btn-bg: #0a2540;
+    --bs-btn-border-color: #0a2540;
+    background: var(--t24-btn-gradient) !important;
+    border-color: #0a2540 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(10, 37, 64, 0.25);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background: var(--t24-btn-hover-gradient) !important;
+    border-color: #061626 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(10, 37, 64, 0.35);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+    background: var(--t24-btn-hover-gradient) !important;
+    border-color: #051322 !important;
+    box-shadow: 0 0 0 0.25rem rgba(10, 37, 64, 0.25) !important;
+    transform: translateY(0);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #0a2540;
+    --bs-btn-border-color: #0a2540;
+    --bs-btn-hover-bg: #0a2540;
+    --bs-btn-hover-border-color: #0a2540;
+    --bs-btn-active-bg: #071b2f;
+    --bs-btn-active-border-color: #071b2f;
+    --bs-btn-focus-shadow-rgb: 10, 37, 64;
+}
+
+.form-control:focus,
+.form-check-input:focus {
+    border-color: #134679;
+    box-shadow: 0 0 0 0.25rem rgba(10, 37, 64, 0.25);
+}

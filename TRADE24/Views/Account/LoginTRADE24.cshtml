@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null; // No utiliza el _Layout para mostrar la pantalla completa
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión - Trade24</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+<body>
+    <div class="container-fluid p-0 min-vh-100">
+        <div class="row g-0 min-vh-100">
+
+            <div class="col-md-6 bg-primary text-white p-5 d-flex flex-column justify-content-between" style="--bs-bg-opacity: .95;">
+                <div>
+                    <div class="d-flex align-items-center gap-2 mb-5">
+                        <i class="bi bi-diagram-3 fs-4"></i>
+                        <span class="fw-semibold tracking-wide">SAMSUNG MEXICANA, S.A. DE C.V.</span>
+                    </div>
+
+                    <div class="my-5">
+                        <h1 class="display-4 fw-bold">SAMSUNG</h1>
+                        <h3 class="fw-light mb-4">Trade24</h3>
+                        <p class="lead text-white-50 mb-5">
+                            Plataforma inteligente de control de comercio exterior — inventarios, pedimentos y cumplimiento del Anexo 24 IMMEX, con analítica asistida por IA para anticipar riesgos antes del cierre.
+                        </p>
+
+                        <div class="d-flex flex-column gap-3">
+                            <div class="d-flex align-items-center gap-3 bg-white bg-opacity-10 p-3 rounded">
+                                <i class="bi bi-stars"></i>
+                                <span>Insights automáticos por módulo con IA</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 bg-white bg-opacity-10 p-3 rounded">
+                                <i class="bi bi-file-earmark-text"></i>
+                                <span>Consulta y reportes por rango de fechas en cada módulo</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 bg-white bg-opacity-10 p-3 rounded">
+                                <i class="bi bi-shield-check"></i>
+                                <span>Trazabilidad y cumplimiento conforme a SAT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="small text-white-50">
+                    © 2026 Samsung Mexicana, S.A. de C.V. · Uso interno
+                </div>
+            </div>
+
+            <div class="col-md-6 bg-light p-5 d-flex flex-column justify-content-between">
+                <div class="text-end text-muted small">
+                    v1.0 · Ambiente de producción
+                </div>
+
+                <div class="w-75 mx-auto">
+                    <small class="text-primary fw-bold text-uppercase">Acceso al sistema</small>
+                    <h2 class="fw-bold mb-1">Iniciar sesión</h2>
+                    <p class="text-muted mb-4">Ingresa con tu correo corporativo para continuar.</p>
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Correo institucional</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="nombre.apellido@samsung.com" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white"><i class="bi bi-lock"></i></span>
+                                <input type="password" class="form-control" placeholder="••••••••" required>
+                                <button class="btn btn-outline-secondary" type="button"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label small" for="rememberMe">Recordarme</label>
+                            </div>
+                            <a href="#" class="small text-decoration-none">¿Olvidaste tu contraseña?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Iniciar sesión</button>
+
+                        <div class="position-relative text-center my-4">
+                            <hr>
+                            <span class="position-absolute top-50 start-50 translate-middle bg-light px-2 text-muted small">o</span>
+                        </div>
+
+                        <button type="button" class="btn btn-outline-secondary w-100 py-2">
+                            Acceso con SSO corporativo
+                        </button>
+                    </form>
+                </div>
+
+                <div class="text-center text-muted small">
+                    ¿Problemas para ingresar? Contacta a Sistemas · ext. 4520
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

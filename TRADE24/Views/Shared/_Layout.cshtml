@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Trade24</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/trade24Styles.css" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="bg-light overflow-hidden">
+
+    <div class="d-flex flex-column flex-lg-row vh-100 overflow-hidden">
+
+        <!-- Header Móvil -->
+        <header class="bg-primary text-white d-lg-none p-3 d-flex justify-content-between align-items-center flex-shrink-0">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-diagram-3 fs-4"></i>
+                <span class="fw-bold">SAMSUNG <small class="fw-normal text-white-50">Trade24</small></span>
+            </div>
+            <button class="btn btn-outline-light btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                <i class="bi bi-list fs-5"></i>
+            </button>
+        </header>
+
+        <!-- Sidebar Responsivo y Fijo -->
+        <div class="offcanvas-lg offcanvas-start bg-primary text-white p-3 d-flex flex-column justify-content-between h-100 flex-shrink-0"
+             tabindex="-1" id="sidebarMenu" style="width: 280px; --bs-bg-opacity: .95;">
+
+            <!-- Logo Fijo -->
+            <div class="d-flex align-items-center justify-content-between mb-3 ps-2 flex-shrink-0">
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-diagram-3 fs-4"></i>
+                    <div>
+                        <div class="fw-bold lh-1">SAMSUNG</div>
+                        <small class="text-white-50">Trade24</small>
+                    </div>
+                </div>
+                <button type="button" class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"></button>
+            </div>
+
+            <!-- Menú de Navegación con Scroll Vertical Estricto -->
+            <nav class="nav nav-pills sidebar-scroll flex-grow-1 pe-2">
+
+                <a class="nav-link active bg-white text-primary fw-semibold" href="#">
+                    <i class="bi bi-grid-fill me-2"></i> Panel de control
+                </a>
+
+                <!-- 1. Catálogos Base -->
+                <div>
+                    <a class="nav-link text-white-50 d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse" href="#menuCatalogos" role="button" aria-expanded="false">
+                        <span><i class="bi bi-journal-bookmark me-2"></i> Catálogos Base</span>
+                        <i class="bi bi-chevron-down fs-7"></i>
+                    </a>
+                    <div class="collapse ps-3" id="menuCatalogos">
+                        <nav class="nav nav-pills flex-column ms-2 border-start border-white-50 ps-2 my-1">
+                            <a class="nav-link text-white-50 py-1 small" href="#">Empresas y Plantas</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Proveedores Extranjeros</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Clientes y Destinatarios</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Agentes Aduanales</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Fracciones Arancelarias</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- 2. Entradas -->
+                <div>
+                    <a class="nav-link text-white-50 d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse" href="#menuEntradas" role="button" aria-expanded="false">
+                        <span><i class="bi bi-box-arrow-in-down me-2"></i> Entradas</span>
+                        <i class="bi bi-chevron-down fs-7"></i>
+                    </a>
+                    <div class="collapse ps-3" id="menuEntradas">
+                        <nav class="nav nav-pills flex-column ms-2 border-start border-white-50 ps-2 my-1">
+                            <a class="nav-link text-white-50 py-1 small" href="#">Pedimentos Importación</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Facturas de Entrada</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Partidas e Ítems</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Rectificaciones (R1)</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Pases de Salida / Bodega</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- 3. Salidas -->
+                <div>
+                    <a class="nav-link text-white-50 d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse" href="#menuSalidas" role="button" aria-expanded="false">
+                        <span><i class="bi bi-box-arrow-up me-2"></i> Salidas</span>
+                        <i class="bi bi-chevron-down fs-7"></i>
+                    </a>
+                    <div class="collapse ps-3" id="menuSalidas">
+                        <nav class="nav nav-pills flex-column ms-2 border-start border-white-50 ps-2 my-1">
+                            <a class="nav-link text-white-50 py-1 small" href="#">Pedimentos Exportación</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Facturas de Salida</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Descargos Automáticos</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Cambios de Régimen (F4/F5)</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Retornos Virtuales (V1)</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- 4. Control de Inventarios -->
+                <div>
+                    <a class="nav-link text-white-50 d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse" href="#menuInventario" role="button" aria-expanded="false">
+                        <span><i class="bi bi-box-seam me-2"></i> Inventarios</span>
+                        <i class="bi bi-chevron-down fs-7"></i>
+                    </a>
+                    <div class="collapse ps-3" id="menuInventario">
+                        <nav class="nav nav-pills flex-column ms-2 border-start border-white-50 ps-2 my-1">
+                            <a class="nav-link text-white-50 py-1 small" href="#">Saldos Temporales</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Material en Proceso</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Producto Terminado</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Ajustes y Mermas</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Activos Fijos y Maquinaria</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- 5. Anexo 24 IMMEX -->
+                <div>
+                    <a class="nav-link text-white-50 d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse" href="#menuAnexo" role="button" aria-expanded="false">
+                        <span><i class="bi bi-file-earmark-code me-2"></i> Anexo 24</span>
+                        <i class="bi bi-chevron-down fs-7"></i>
+                    </a>
+                    <div class="collapse ps-3" id="menuAnexo">
+                        <nav class="nav nav-pills flex-column ms-2 border-start border-white-50 ps-2 my-1">
+                            <a class="nav-link text-white-50 py-1 small" href="#">Estructura de Materiales (BOM)</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Control de Temporalidad</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Saldos Pendientes de Descargo</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Reporte de Vencimientos</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- 6. Anexo 30 / IVA e IEPS -->
+                <div>
+                    <a class="nav-link text-white-50 d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse" href="#menuAnexo30" role="button" aria-expanded="false">
+                        <span><i class="bi bi-shield-check me-2"></i> Anexo 30 (SCCC)</span>
+                        <i class="bi bi-chevron-down fs-7"></i>
+                    </a>
+                    <div class="collapse ps-3" id="menuAnexo30">
+                        <nav class="nav nav-pills flex-column ms-2 border-start border-white-50 ps-2 my-1">
+                            <a class="nav-link text-white-50 py-1 small" href="#">Inventario Inicial</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Informes de Descargo</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Estado de Cuenta SCCC</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- 7. Módulo de IA -->
+                <a class="nav-link text-white-50" href="#">
+                    <i class="bi bi-stars me-2"></i> Insights y Riesgos IA
+                </a>
+
+                <!-- 8. Consultas y Reportes -->
+                <div>
+                    <a class="nav-link text-white-50 d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse" href="#menuReportes" role="button" aria-expanded="false">
+                        <span><i class="bi bi-bar-chart me-2"></i> Reportes</span>
+                        <i class="bi bi-chevron-down fs-7"></i>
+                    </a>
+                    <div class="collapse ps-3" id="menuReportes">
+                        <nav class="nav nav-pills flex-column ms-2 border-start border-white-50 ps-2 my-1">
+                            <a class="nav-link text-white-50 py-1 small" href="#">Reporte de Pedimentos</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Estadísticas de Comercio</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Bitácora de Auditoría</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Exportación Data Stage</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- 9. Configuración -->
+                <div>
+                    <a class="nav-link text-white-50 d-flex justify-content-between align-items-center"
+                       data-bs-toggle="collapse" href="#menuConfig" role="button" aria-expanded="false">
+                        <span><i class="bi bi-gear me-2"></i> Configuración</span>
+                        <i class="bi bi-chevron-down fs-7"></i>
+                    </a>
+                    <div class="collapse ps-3" id="menuConfig">
+                        <nav class="nav nav-pills flex-column ms-2 border-start border-white-50 ps-2 my-1">
+                            <a class="nav-link text-white-50 py-1 small" href="#">Usuarios y Permisos</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Conexiones de API SAT</a>
+                            <a class="nav-link text-white-50 py-1 small" href="#">Parámetros del Sistema</a>
+                        </nav>
+                    </div>
+                </div>
+
+            </nav>
+
+            <!-- Perfil de Usuario Fijo al Pie del Sidebar -->
+            <div class="border-top border-white-50 pt-3 mt-2 d-flex align-items-center justify-content-between flex-shrink-0">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge rounded-circle bg-white text-primary p-2">DR</span>
+                    <div class="lh-1">
+                        <div class="fw-bold small">Denise Ruiz</div>
+                        <small class="text-white-50" style="font-size: 0.75rem;">Coord. Comercio Exterior</small>
+                    </div>
+                </div>
+                <form asp-controller="Account" asp-action="Logout" method="post" class="m-0">
+                    <button type="submit" class="btn btn-outline-light btn-sm rounded-circle d-inline-flex align-items-center justify-content-center p-2 lh-1 border-0 bg-white bg-opacity-10 text-white" title="Cerrar sesión">
+                        <i class="bi bi-box-arrow-right fs-6"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Área Derecha de Contenido -->
+        <div class="flex-grow-1 d-flex flex-column h-100 min-w-0 overflow-hidden">
+
+            <!-- Header Simplificado Fijo -->
+            <!-- Header Simplificado Fijo -->
+            <header class="bg-white border-bottom px-4 py-3 flex-shrink-0 d-flex align-items-center gap-3">
+                <button class="btn btn-outline-secondary btn-sm d-none d-lg-inline-flex align-items-center justify-content-center"
+                        id="btnToggleSidebar" type="button" style="width: 34px; height: 34px;">
+                    <i class="bi bi-arrow-bar-left"></i>
+                </button>
+                <div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-1 small">
+                            <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Inicio</a></li>
+                            <li class="breadcrumb-item text-muted">@ViewData["Modulo"]</li>
+                            <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+                        </ol>
+                    </nav>
+                    <h4 class="mb-0 fw-bold">@ViewData["Title"]</h4>
+                </div>
+
+                <div class="d-flex">
+                    <img src="~/images/flags/@(System.Globalization.CultureInfo.CurrentUICulture.Name).png" alt="@System.Globalization.CultureInfo.CurrentUICulture.Name" width="24" height="16" />
+                    <form asp-controller="Culture" asp-action="SetLanguage" method="post"
+                          asp-route-returnUrl="@Context.Request.Path">
+                        <select name="culture" onchange="this.form.submit()"
+                                asp-for="@System.Globalization.CultureInfo.CurrentUICulture.Name">
+                            <option value="es-MX">Español</option>
+                            <option value="en">English</option>
+                        </select>
+                    </form>
+                </div>
+            </header>
+
+            <!-- Área Principal de Contenido (Scroll Vertical Independiente) -->
+            <main class="p-3 p-lg-4 flex-grow-1 overflow-x-hidden overflow-y-auto" style="min-height: 0;">
+                @RenderBody()
+            </main>
+        </div>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
